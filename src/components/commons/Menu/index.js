@@ -1,46 +1,46 @@
-import React from "react";
+import React from 'react';
 import { Logo } from '../../../theme/Logo';
+import { Button } from '../Button';
 import { MenuWrapper } from './styles/MenuWrapper';
 
 export default function Menu() {
-
-  const links = [ 
+  const links = [
     {
       texto: 'Home',
-      url: '/'
+      url: '/',
     },
     {
       texto: 'Perguntas frequentes',
-      url: '/faq'
+      url: '/faq',
     },
     {
       texto: 'Sobre',
-      url: '/sobre'
-    }
-  ]
+      url: '/sobre',
+    },
+  ];
 
   return (
     <MenuWrapper>
       <MenuWrapper.LeftSide>
-        <Logo/>
+        <Logo />
       </MenuWrapper.LeftSide>
 
       <MenuWrapper.CentralSide>
         {links.map((link) => {
           return (
-            <li>
-              <a href={link.url}>
-                {link.texto}
-              </a>
+            <li key={link.url}>
+              <a href={link.url}>{link.texto}</a>
             </li>
-          )
+          );
         })}
       </MenuWrapper.CentralSide>
 
       <MenuWrapper.RightSide>
-        <button>Entrar</button>
-        <button>Cadastrar</button>
+        <Button ghost variant="secondary.main">
+          Entrar
+        </Button>
+        <Button variant="primary.main">Cadastrar</Button>
       </MenuWrapper.RightSide>
     </MenuWrapper>
-  )
+  );
 }
